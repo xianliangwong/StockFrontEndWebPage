@@ -1,4 +1,9 @@
-import React, { ChangeEvent, SyntheticEvent, useState } from "react";
+import React, {
+  ChangeEvent,
+  SyntheticEvent,
+  createContext,
+  useState,
+} from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import CardList from "./Compoments/CardList/CardList";
@@ -17,6 +22,7 @@ function App() {
   }
 
   const onClick = async (e: SyntheticEvent) => {
+    e.preventDefault();
     const result = await searchCompanies(search);
     if (typeof result === "string") {
       setServerError("API returned error");
@@ -28,9 +34,14 @@ function App() {
 
   return (
     <div className="App">
-      <Search search={search} handleChanges={handleChanges} onClick={onClick} />
+      <Search
+        search={search}
+        handleSearchChanges={handleChanges}
+        onSearchSubmit={onClick}
+      />
       {serverError && <h1>Error message: {serverError}</h1>}
-      <CardList />
+
+      <CardList items={searchResult} />
     </div>
   );
 }

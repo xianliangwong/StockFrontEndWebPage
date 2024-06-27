@@ -43,6 +43,8 @@
     ]
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0"
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
+    "@types/axios": "^0.14.0",
+    "@types/uuid": "^10.0.0"
   }
 }

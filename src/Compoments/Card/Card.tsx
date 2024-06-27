@@ -1,10 +1,11 @@
 import React from "react";
 import "./Card.css";
+import { CompanySearch } from "../../company";
+import AddPortfolio from "../Portfolio/AddPortfolio/AddPortfolio";
 
 interface Props {
-  companyName: string;
-  ticker: string;
-  price: number;
+  id: string;
+  searchResult: CompanySearch;
 }
 
 const Card = (props: Props) => {
@@ -12,17 +13,21 @@ const Card = (props: Props) => {
     <div className="card">
       <img
         src="https://t4.ftcdn.net/jpg/00/59/96/75/360_F_59967553_9g2bvhTZf18zCmEVWcKigEoevGzFqXzq.jpg"
-        alt="apple image"
+        alt="Company Logo"
       ></img>
 
       <div className="details">
         <h2>
-          {props.companyName} ({props.ticker})
+          {props.searchResult.name} ({props.searchResult.symbol})
         </h2>
-        <p>${props.price}</p>
+        <p>${props.searchResult.currency}</p>
       </div>
 
-      <p className="info">info here</p>
+      <p className="info">
+        {props.searchResult.exchangeShortName}--
+        {props.searchResult.stockExchange}
+      </p>
+      <AddPortfolio symbol={props.searchResult.symbol} />
     </div>
   );
 };
