@@ -10,11 +10,15 @@ import CardList from "./Compoments/CardList/CardList";
 import Search from "./Compoments/Search/Search";
 import { CompanySearch } from "./company";
 import { searchCompanies } from "./API/api";
+import AddPortFolioContextProvider from "./Compoments/Context/AddPortFolioContextProvider";
 
 function App() {
   const [search, setSearch] = useState<string>("");
+  const [portfolioValues, setPortfolioValues] = useState<string[]>([]);
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState<string>("");
+
+  const PortFolioProviderValue = { portfolioValues, setPortfolioValues };
 
   function handleChanges(e: ChangeEvent<HTMLInputElement>) {
     setSearch(e.target.value);
@@ -41,7 +45,9 @@ function App() {
       />
       {serverError && <h1>Error message: {serverError}</h1>}
 
-      <CardList items={searchResult} />
+      <AddPortFolioContextProvider>
+        <CardList items={searchResult} />
+      </AddPortFolioContextProvider>
     </div>
   );
 }

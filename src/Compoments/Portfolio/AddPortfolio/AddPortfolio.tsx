@@ -1,10 +1,15 @@
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useContext } from "react";
+import {
+  AddPortFolioContext,
+  portFolioContextType,
+} from "../../Context/AddPortFolioContextProvider";
 
 type Props = {
   symbol: string;
 };
 
 const AddPortfolio = (props: Props) => {
+  const value = useContext(AddPortFolioContext) as portFolioContextType;
   return (
     <form
       onSubmit={(e) => {

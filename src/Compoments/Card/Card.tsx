@@ -9,6 +9,7 @@ interface Props {
 }
 
 const Card = (props: Props) => {
+  console.log("card test");
   return (
     <div className="card">
       <img
@@ -22,7 +23,6 @@ const Card = (props: Props) => {
         </h2>
         <p>${props.searchResult.currency}</p>
       </div>
-
       <p className="info">
         {props.searchResult.exchangeShortName}--
         {props.searchResult.stockExchange}

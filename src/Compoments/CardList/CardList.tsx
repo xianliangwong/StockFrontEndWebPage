@@ -8,6 +8,7 @@ interface Props {
 }
 
 const CardList = ({ items }: Props) => {
+  console.log("cardlist test");
   return (
     <>
       {items.length > 0 ? (
