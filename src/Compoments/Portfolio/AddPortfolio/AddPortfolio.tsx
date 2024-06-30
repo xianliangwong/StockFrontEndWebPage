@@ -12,8 +12,16 @@ const AddPortfolio = (props: Props) => {
   const value = useContext(AddPortFolioContext) as portFolioContextType;
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={(e: any) => {
         e.preventDefault(); //to prevent default behavior of sending value to specified url and causing it
+        const hasAdded = value.portFolioValue.find(
+          (target) => target === e.target[0].value
+        );
+        if (hasAdded) {
+          return;
+        }
+        const updatedPortfolio = [...value.portFolioValue, e.target[0].value];
+        value.setPortfolioValues(updatedPortfolio);
         console.log("testing");
       }}
     >

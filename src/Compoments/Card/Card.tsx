@@ -11,19 +11,18 @@ interface Props {
 const Card = (props: Props) => {
   console.log("card test");
   return (
-    <div className="card">
-      <img
-        src="https://t4.ftcdn.net/jpg/00/59/96/75/360_F_59967553_9g2bvhTZf18zCmEVWcKigEoevGzFqXzq.jpg"
-        alt="Company Logo"
-      ></img>
-
+    <div
+      className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"
+      key={props.id}
+      id={props.id}
+    >
       <div className="details">
-        <h2>
+        <h2 className="font-bold text-center text-black md:text-left">
           {props.searchResult.name} ({props.searchResult.symbol})
         </h2>
-        <p>${props.searchResult.currency}</p>
+        <p className="text-black">${props.searchResult.currency}</p>
       </div>
-      <p className="info">
+      <p className="font-bold text-black">
         {props.searchResult.exchangeShortName}--
         {props.searchResult.stockExchange}
       </p>
