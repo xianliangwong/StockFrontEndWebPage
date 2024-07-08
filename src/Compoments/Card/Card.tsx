@@ -2,6 +2,7 @@ import React from "react";
 import "./Card.css";
 import { CompanySearch } from "../../company";
 import AddPortfolio from "../Portfolio/AddPortfolio/AddPortfolio";
+import { Link } from "react-router-dom";
 
 interface Props {
   id: string;
@@ -17,9 +18,12 @@ const Card = (props: Props) => {
       id={props.id}
     >
       <div className="details">
-        <h2 className="font-bold text-center text-black md:text-left">
+        <Link
+          to={`/company/${props.searchResult.symbol}`}
+          className="font-bold text-center text-black md:text-left"
+        >
           {props.searchResult.name} ({props.searchResult.symbol})
-        </h2>
+        </Link>
         <p className="text-black">${props.searchResult.currency}</p>
       </div>
       <p className="font-bold text-black">
