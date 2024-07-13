@@ -1,9 +1,12 @@
 import axios from "axios";
-import { CompanyProfile, CompanySearch } from "../company";
+import { CompanyKeyMetrics, CompanyProfile, CompanySearch } from "../company";
 
 interface SearchResponse {
   data: CompanySearch[];
 }
+
+//react query for set loading , react skeleton while data is loading and error handling
+
 export const searchCompanies = async (query: string) => {
   try {
     const data = await axios.get<SearchResponse>(
@@ -25,6 +28,17 @@ export const getCompanyProfile = async (query: string) => {
   try {
     const data = await axios.get<CompanyProfile[]>(
       `https://financialmodelingprep.com/api/v3/profile/${query}?apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message from API company profile:", error.message);
+  }
+};
+
+export const getKeyMetrics = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyKeyMetrics[]>(
+      `https://financialmodelingprep.com/api/v3/key-metrics-ttm/${query}?apikey=${process.env.REACT_APP_API_KEY}`
     );
     return data;
   } catch (error: any) {
