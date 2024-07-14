@@ -2,7 +2,10 @@ import React from "react";
 import Table from "../../Compoments/Table/Table";
 import RatioList from "../../Compoments/RatioList/RatioList";
 import { CompanyKeyMetrics } from "../../company";
-import { testIncomeStatementData } from "../../Compoments/Table/testData";
+import {
+  TestDataCompany,
+  testIncomeStatementData,
+} from "../../Compoments/Table/testData";
 
 interface Props {}
 
@@ -23,7 +26,7 @@ const DesignPage = (props: Props) => {
         design aspects of the app
       </h2>
       <RatioList data={testIncomeStatementData} config={tableConfig} />
-      <Table />
+      <Table config={tableConfig} data={TestDataCompany[0]} />
     </>
   );
 };

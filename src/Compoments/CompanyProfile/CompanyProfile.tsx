@@ -3,6 +3,7 @@ import { CompanyKeyMetrics } from "../../company";
 import { useOutletContext } from "react-router";
 import { getKeyMetrics } from "../../API/api";
 import RatioList from "../RatioList/RatioList";
+import Spinner from "../Spinner/Spinner";
 
 interface Props {}
 
@@ -85,7 +86,7 @@ const CompanyProfile = (props: Props) => {
       {companyData ? (
         <RatioList data={companyData} config={tableConfig}></RatioList>
       ) : (
-        <div>...Loading</div>
+        <Spinner />
       )}
     </>
   );

@@ -1,5 +1,12 @@
 import axios from "axios";
-import { CompanyKeyMetrics, CompanyProfile, CompanySearch } from "../company";
+import {
+  CompanyBalanceSheet,
+  CompanyCashFlow,
+  CompanyIncomeStatement,
+  CompanyKeyMetrics,
+  CompanyProfile,
+  CompanySearch,
+} from "../company";
 
 interface SearchResponse {
   data: CompanySearch[];
@@ -39,6 +46,41 @@ export const getKeyMetrics = async (query: string) => {
   try {
     const data = await axios.get<CompanyKeyMetrics[]>(
       `https://financialmodelingprep.com/api/v3/key-metrics-ttm/${query}?apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message from API company profile:", error.message);
+  }
+};
+
+//free version can only get up to 5 years of income statement
+export const getIncomeStatement = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyIncomeStatement[]>(
+      `https://financialmodelingprep.com/api/v3/income-statement/${query}?limit=40&apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message from API company profile:", error.message);
+  }
+};
+
+//free version can only get up to 5 years of income statement
+export const getBalanceSheet = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyBalanceSheet[]>(
+      `https://financialmodelingprep.com/api/v3/balance-sheet-statement/${query}?limit=40&apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message from API company profile:", error.message);
+  }
+};
+
+export const getCashFlow = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyCashFlow[]>(
+      `https://financialmodelingprep.com/api/v3/cash-flow-statement/${query}?limit=40&apikey=${process.env.REACT_APP_API_KEY}`
     );
     return data;
   } catch (error: any) {

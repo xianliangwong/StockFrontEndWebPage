@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props {
   data: any;
@@ -8,7 +9,7 @@ interface Props {
 const RatioList = (props: Props) => {
   const renderedRows = props.config.map((row: any) => {
     return (
-      <li className="py-3 sm:py-4 border-b-2 border-b-gray-200 ">
+      <li key={uuidv4()} className="py-3 sm:py-4 border-b-2 border-b-gray-200 ">
         <div className="flex items-center space-x-4">
           <div className="flex-1 space-y-2">
             <p className="text-sm font-medium text-gray-900 truncate">
@@ -27,7 +28,9 @@ const RatioList = (props: Props) => {
   });
   return (
     <div className="bg-white shadow rounded-lg ml-4 mt-4 mb-4 p-4 sm:p-6 h-full">
-      <ul className="flex flex-col space-y-2">{renderedRows}</ul>
+      <ul key={uuidv4()} className="flex flex-col space-y-2">
+        {renderedRows}
+      </ul>
     </div>
   );
 };
