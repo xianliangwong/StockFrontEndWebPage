@@ -6,6 +6,7 @@ import SideBar from "../../Compoments/SideBar/SideBar";
 import CompanyDashBoard from "../../Compoments/CompanyDashBoard/CompanyDashBoard";
 import Tile from "../../Compoments/Tile/Tile";
 import Spinner from "../../Compoments/Spinner/Spinner";
+import TenKFinder from "../../Compoments/TenKFinder/TenKFinder";
 
 interface Props {}
 
@@ -41,6 +42,7 @@ const CompanyPage = (props: Props) => {
                 {company.description}
               </p>
             </div>
+            <TenKFinder ticker={company.symbol} />
           </CompanyDashBoard>
         </div>
       ) : (
