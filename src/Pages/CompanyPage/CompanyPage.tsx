@@ -31,7 +31,10 @@ const CompanyPage = (props: Props) => {
 
           <CompanyDashBoard ticker={ticker!}>
             <Tile tittle="Company Name" subTitle={company.companyName}></Tile>
-            <Tile tittle="Price" subTitle={company.price.toString()}></Tile>
+            <Tile
+              tittle="Price"
+              subTitle={"$" + company.price.toString()}
+            ></Tile>
             <Tile tittle="Sector" subTitle={company.sector}></Tile>
             <Tile tittle="DCF" subTitle={company.dcf.toString()}></Tile>
             <div className="bg-white shadow rounded mt-3 m-4">
