@@ -11,6 +11,7 @@ export const loginAPI = async (userName: string, passWord: string) => {
       password: passWord,
     });
 
+    console.log(data);
     return data;
   } catch (error) {
     handleError(error);
