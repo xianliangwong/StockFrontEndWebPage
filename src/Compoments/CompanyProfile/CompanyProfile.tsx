@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router";
 import { getKeyMetrics } from "../../API/api";
 import RatioList from "../RatioList/RatioList";
 import Spinner from "../Spinner/Spinner";
+import StockComment from "../StockComment/StockComment";
 
 interface Props {}
 
@@ -84,7 +85,10 @@ const CompanyProfile = (props: Props) => {
   return (
     <>
       {companyData ? (
-        <RatioList data={companyData} config={tableConfig}></RatioList>
+        <>
+          <RatioList data={companyData} config={tableConfig}></RatioList>
+          <StockComment stockSymbol={ticker} />
+        </>
       ) : (
         <Spinner />
       )}

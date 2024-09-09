@@ -34,8 +34,8 @@ export const UserProvider = ({ children }: Props) => {
       //parse into object
       setUser(JSON.parse(user));
       setToken(token);
-      //send the jwt token in the header when making api request
-      axios.defaults.headers.common["Authorization"] = "Bearer" + token;
+      //send the jwt token in the header when making api request, requires space between "Bearer" and token
+      axios.defaults.headers.common["Authorization"] = "Bearer" + " " + token;
     }
     setIsReady(true);
   }, []);
@@ -79,7 +79,7 @@ export const UserProvider = ({ children }: Props) => {
           navigate("/search");
         }
       })
-      .catch((e) => toast.warning("Server error occured"));
+      .catch((e) => toast.warning(e.message));
   };
 
   const isLoggedIn = () => {

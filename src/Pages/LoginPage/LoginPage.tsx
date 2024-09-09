@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useAuth } from "../../Compoments/Context/useAuth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 type Props = {};
 
@@ -27,7 +28,13 @@ const LoginPage = (props: Props) => {
   } = useForm<LoginFormsInputs>({ resolver: yupResolver(validation) });
 
   const handleLogin = (form: LoginFormsInputs) => {
-    loginUser(form.userName, form.password);
+    try {
+      loginUser(form.userName, form.password);
+    } catch (e) {
+      toast.warning(
+        "Backend server is not online, please contact system admin"
+      );
+    }
   };
 
   return (

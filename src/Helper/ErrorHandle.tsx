@@ -19,6 +19,11 @@ export const handleError = (error: any) => {
       window.history.pushState({}, "LoginPage", "/login");
     } else if (err) {
       toast.warning(err?.data);
+    } else {
+      console.log(error.message);
+      toast.warning(
+        "Unable to login, backend server offline, please contact admin"
+      );
     }
   }
 };
