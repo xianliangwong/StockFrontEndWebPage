@@ -10,6 +10,7 @@ import BalanceSheet from "../Compoments/BalanceSheet/BalanceSheet";
 import CashflowStatement from "../Compoments/CashflowStatement/CashflowStatement";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
+import AddPortFolioContextProvider from "../Compoments/Context/AddPortFolioContextProvider";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,14 @@ export const router = createBrowserRouter([
       { path: "", element: <HomePage /> },
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
-      { path: "search", element: <SearchPage /> },
+      {
+        path: "search",
+        element: (
+          <AddPortFolioContextProvider>
+            <SearchPage />
+          </AddPortFolioContextProvider>
+        ),
+      },
       { path: "design-guide", element: <DesignPage /> },
       {
         path: "company/:ticker",
