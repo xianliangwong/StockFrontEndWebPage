@@ -5,6 +5,24 @@ Web Pages
 1) Main Page
 ![image](https://github.com/user-attachments/assets/d0645199-6e87-4732-825c-8b126f8fca14)
 
+2) Search Page- contains procted routes that requires sign in 
+
+![image](https://github.com/user-attachments/assets/3b2b68a8-c3ba-44a2-a64e-0a06bfe53193)
+
+Upon succesfull sign in:
+![image](https://github.com/user-attachments/assets/3fb76c29-efb3-423e-8a26-6ceafb9d2c37)
+
+Succesfull search of aap keyword:
+![image](https://github.com/user-attachments/assets/6d6ec58f-cf2d-450e-9d6c-8975e114fbf3)
+
+Upon succesfull adding stock to portfolio:
+![image](https://github.com/user-attachments/assets/91126f4c-383e-4bce-8025-502c78fc1be1)
+
+3) Company detail pages:
+![image](https://github.com/user-attachments/assets/5ca5506c-c4d3-4090-a7cf-338764a7be2f)
+
+
+
 
 
 
