@@ -11,6 +11,7 @@ import CashflowStatement from "../Compoments/CashflowStatement/CashflowStatement
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import AddPortFolioContextProvider from "../Compoments/Context/AddPortFolioContextProvider";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -23,15 +24,21 @@ export const router = createBrowserRouter([
       {
         path: "search",
         element: (
-          <AddPortFolioContextProvider>
-            <SearchPage />
-          </AddPortFolioContextProvider>
+          <ProtectedRoute>
+            <AddPortFolioContextProvider>
+              <SearchPage />
+            </AddPortFolioContextProvider>
+          </ProtectedRoute>
         ),
       },
       { path: "design-guide", element: <DesignPage /> },
       {
         path: "company/:ticker",
-        element: <CompanyPage />,
+        element: (
+          <ProtectedRoute>
+            <CompanyPage />
+          </ProtectedRoute>
+        ),
         children: [
           { path: "company-profile", element: <CompanyProfile /> },
           { path: "income-statement", element: <IncomeStatement /> },
