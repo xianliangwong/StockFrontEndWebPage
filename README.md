@@ -1,3 +1,14 @@
+Intro:
+- The purpose of this side project was to learn the the fullstack process of creating a frontend and backend, this is a guided project that utilizes  reactJS and dotnet core web api 6.0 
+
+Web Pages
+1) Main Page
+![image](https://github.com/user-attachments/assets/d0645199-6e87-4732-825c-8b126f8fca14)
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -44,3 +55,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
